@@ -1,0 +1,36 @@
+{
+    "name": "zebra/fullcms",
+    "description": "Zebra CMS - ZF2",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "framework",
+        "zf2",
+        "cms"
+    ],
+    "homepage": "http://www.zebra.co.uk/",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://packages.zendframework.com/"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zendframework": "2.*",
+        "zendframework/zendservice-recaptcha": "2.*",
+        "zendframework/zend-developer-tools": "dev-master",
+        "doctrine/common": ">=2.1",
+        "doctrine/doctrine-module": "dev-master",
+        "doctrine/orm": ">2.2,<2.4-dev",
+        "doctrine/dbal": ">2.2,<2.4-dev",
+        "doctrine/doctrine-orm-module": "dev-master",
+        "bjyoungblood/bjy-profiler": "dev-master"
+    },
+    "minimum-stability": "alpha",
+    "autoload": {
+        "psr-0": {
+            "DoctrineORMModule": "src/",
+            "DoctrineORMModuleTest": "tests/"
+        }
+    }
+}

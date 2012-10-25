@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/2001/REC-xhtml11-20010531/DTD/xhtml11-flat.dtd">
+<html>
+    <head>
+        <title>%TTL%</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+            <meta name='keywords' content="%METAKEYWORDS%" />
+            <meta name='description' content="%METADESCRIPTION%" />
+            <link type="text/css" rel='stylesheet' media='screen, projection' href="css/structure.css" />
+            <link type="text/css" rel='stylesheet' media='screen, projection' href="css/jquery.lightbox.css" />
+            <link rel="shortcut icon" href="%RWF%/images/favicon.ico" />
+            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+            <script type="text/javascript" src="js/url.js"></script>
+            <script type="text/javascript" src="js/jQuery.lightbox.js"></script>
+            <script type="text/javascript" src="js/jQuery.timer.js"></script>
+            <!--[if lte IE 6]><script type="text/javascript" src="js/supersleight-min.js"></script><![endif]-->
+            %VERIFICATION%
+    </head>
+
+    <body>
+        <div id='pageWrapper'>
+            <div id="topWrapper">
+                <div id="siteDetails">
+                    <h1>%SITE%</h1>
+                    <div id="strapLine">Random Text</div>
+                </div>
+                <div id="contactDetails">
+                    <div id="contactTel">Phone: <span class="blackText">%TELEPHONE%</span></div>
+                    <div id="contactEmail">Email: <span class="blackText">%EMAIL%</span></div>
+                </div>
+            </div>
+            <div id="mainNavigation">
+                <ul id="mainNav">
+                    %MAINNAV%
+                </ul>
+            </div>
+            <div id="imageHolder">
+                <div id="contentOpacity"></div>
+                <div id="contentHolder">
+                </div>
+            </div>
+
+            <div id="contentWrapper">
+                <div id="topContent">
+                    %CONTENT-about-us%
+                </div>
+                <div id="leftFrame">%CONTENT-gallery%</div>
+                <div id="rightFrame">
+                    <div id="aboutFrame">%CONTENT-about%</div>
+                    <div id="contactForm">%CONTENT-contact-us%</div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div id='footWrapper'>
+            <div id="footCenter">
+                <div id='newsLetterSignUp'></div>
+                <div id='twitterFeed'>
+                    <ul id="twitterList"></ul>
+                </div>
+                <div id="getInTouchHolder">%CONTENT-get-in-touch%</div>
+            </div>
+        </div>
+        %ANALYTICS%
+        <!--[if lte IE 6]>
+        <script type="text/javascript">
+            supersleight.limitTo('pageWrapper');
+            supersleight.init();
+        </script>
+        <![endif]-->
+    </body>
+</html>

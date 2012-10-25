@@ -1,0 +1,10 @@
+<?php
+if(is_array($this->blog)) {
+    for($i=0;$i<count($this->blog);$i++) {
+        echo "{$this->blog[$i]->name}\n<br />\n";
+    }
+}
+else {
+    echo "<a href='". $this->url('blog/listPage', array('blogId'=>$this->blog->id,'page'=>0)) ."'>{$this->blog->name}</a>";
+}
+?>

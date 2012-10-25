@@ -1,0 +1,12 @@
+<?php
+$form = $this->form;
+
+echo $this->form()->openTag($form);
+echo $this->formHidden($form->get('id'));
+echo $this->formHidden($form->get('post_id'));
+echo $this->formHidden($form->get('user_id'));
+echo $this->formRow($form->get('title'));
+echo $this->formRow($form->get('comment'));
+echo $this->formSubmit($form->get('submitBtn'));
+echo $this->form()->closeTag();
+?>

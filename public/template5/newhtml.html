@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/2001/REC-xhtml11-20010531/DTD/xhtml11-flat.dtd">
+<html>
+    <head>
+        <title>%TTL%</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <meta name='keywords' content="%METAKEYWORDS%" />
+        <meta name='description' content="%METADESCRIPTION%" />
+        <link type="text/css" rel='stylesheet' media='screen, projection' href="css/structure.css" />
+        <link type="text/css" rel='stylesheet' media='screen, projection' href="css/jquery.lightbox.css" />
+        <link rel="shortcut icon" href="images/favicon.ico" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/url.js"></script>
+        <script type="text/javascript" src="js/jQuery.lightbox.js"></script>
+        <script type="text/javascript" src="js/jQuery.timer.js"></script>
+        <!--[if lte IE 6]><script type="text/javascript" src="js/supersleight-min.js"></script><![endif]-->
+
+    </head>
+
+    <body>
+        <div id="pageWrapper">
+            <div id="leftFrame">
+                <div id="topLeftContent">
+                    <h1>Website Name</h1>
+                    <div id="strap">Random text</div>
+                </div>
+
+                <div id="contactForm">
+                    %CONTENT-contactForm%
+                </div>
+            </div>
+            <div id="rightFrame">
+                <div id="contactDetails">
+                    <div id="contactTel">Phone: <span class="blackText">%TELEPHONE%</span></div>
+                    <div id="contactEmail">Email: <span class="blackText">%EMAIL%</span></div>
+                </div>
+                <div id="mainNavigation">
+                    <ul id="mainNav">
+                        <li><a href="#" class='current'>Test</a></li>
+                        <li><a href="#">Test</a></li>
+                    </ul>
+                </div>
+                <div id="contentHolder">
+                    <div id="welcomeHolder">
+                        <h1>Welcome header</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem justo, vestibulum vel consequat at, semper nec augue.</p>
+                    </div>
+
+                    <div id="galleryHolder">
+                        <h1>Gallery</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem justo, vestibulum vel consequat at, semper nec augue. Pellentesque iaculis, erat quis accumsan vehicula, diam dui pulvinar neque, non tempus nulla sem eu risus.</p>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div id="imageHolder">
+                <div id="imageOpacity"></div>
+                <div id="imageContent">
+                    <h1>Design with modern look</h1>
+                    <p>Content</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div id="footer1">
+            <h1>Our Services</h1>
+            <table>
+                <tr>
+                    <td>Content</td>
+                    <td>Content</td>
+                    <td>Content</td>
+                </tr>
+            </table>
+        </div>
+        <div id="footer2">
+            <div id='newsLetterSignUp'></div>
+            <div id='twitterFeed'>
+                <ul id="twitterList"></ul>
+            </div>
+            <div id="getInTouchHolder">%CONTENT-getInTouch%</div>
+        </div>
+
+        %ANALYTICS%
+        <!--[if lte IE 6]>
+        <script type="text/javascript">
+            supersleight.limitTo('pageWrapper');
+            supersleight.init();
+        </script>
+        <![endif]-->
+        <script type="text/javascript">
+            //<![CDATA[
+            $(document).ready(function() {
+                $("#leftFrame").css( { height: $("#rightFrame").height() + 'px' });
+            });
+            //]]>
+        </script>
+    </body>
+</html>
+
+

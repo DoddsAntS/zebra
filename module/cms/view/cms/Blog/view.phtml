@@ -1,0 +1,19 @@
+<h1 id="blogView-Title"><?php echo $this->blog->posts[$this->postKey]->title;?></h1>
+<h3 id="blogView-DateAuthor"><?php echo $this->blog->posts[$this->postKey]->addDate->format('d M Y');?> by <?php echo $this->blog->posts[$this->postKey]->user->firstName .' '. $this->blog->posts[$this->postKey]->user->lastName;?></h3>
+<div id="blogView-Body"><?php echo $this->blog->posts[$this->postKey]->body;?></div>
+<div id="blogView-Comments">
+    <?php
+    if(count($this->blog->posts[$this->postKey]->comments) > 0) {
+        for($i=0;$i<count($this->blog->posts[$this->postKey]->comments);$i++) {
+            ?>
+    <div class="blogView-comment">
+        <div class="blogView-comment-title"><?php echo $this->blog->posts[$this->postKey]->comments[$i]->title;?></div>
+        <div class="blogView-comment-addDate"><?php echo $this->blog->posts[$this->postKey]->comments[$i]->addDate->format('d M Y H:i');?></div>
+        <div class="blogView-comment-comment"><?php echo $this->blog->posts[$this->postKey]->comments[$i]->comment;?><br /><?php echo $this->blog->posts[$this->postKey]->comments[$i]->user->firstName .' '. $this->blog->posts[$this->postKey]->comments[$i]->user->lastName;?></div>
+    </div>
+            <?php
+        }
+    }
+    ?>
+</div>
+<div id="blogView-Links"><a href="<?php echo $this->url('blog/listPage', array('blogId'=>$this->blog->id));?>"><?php echo $this->blog->name;?> Posts</a></div>

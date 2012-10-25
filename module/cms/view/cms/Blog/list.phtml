@@ -1,0 +1,24 @@
+<h1><?php echo $this->blog->name;?></h1>
+<?php
+if(count($this->blog->posts) > 0) {
+    $start = $this->page * 10;
+    if(count($this->blog->posts) < $start) {
+        $start = count($this->blog->posts) - 10;
+        $start = $start < 0 ? 0 : $start;
+    }
+    
+    $end = $start + 10;
+    if(count($this->blog->posts) < $end) {
+        $end = count($this->blog->posts);
+    }
+    
+    for($i=$start;$i<$end;$i++) {
+        ?>
+<div class="blogListView">
+    <div class="blogListView-Title"><a href="<?php echo $this->url('blog/viewBlog', array('blogId'=>$this->blog->id, 'id'=>$this->blog->posts[$i]->id, 'title'=>str_replace(' ', '-', $this->blog->posts[$i]->title)));?>"><?php echo $this->blog->posts[$i]->title;?></a></div>
+    <div class="blogListView-Slug">Blog Slug</div>
+</div>
+        <?php
+    }
+}
+?>
