@@ -75,5 +75,10 @@ class AccountController extends AbstractActionController {
         return $view;
     }
     
+    public function viewAction() {
+        $view = new ViewModel();
+        return $view;
+    }
+    
 
 }
