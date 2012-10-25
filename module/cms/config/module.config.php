@@ -7,14 +7,6 @@ return array(
             'orm_default' => array(
                 'configuration' => 'orm_default',
                 'eventmanager'  => 'orm_default',
-
-                'params' => array(
-                    'host'     => '127.0.0.1',
-                    'port'     => '3306',
-                    'user'     => 'root',
-                    'password' => 'MV87E977',
-                    'dbname'   => 'cms8',
-                )
             ),
         ),
 
