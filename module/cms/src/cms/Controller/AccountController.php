@@ -61,7 +61,7 @@ class AccountController extends AbstractActionController {
                 $this->getEntityManager()->persist($user);
                 $this->getEntityManager()->flush();
                 $user = $this->getEntityManager()->find('\cms\Entity\User', $userId);
-                $this->redirect()->toRoute('user/profile', array('id'=>$user->id));
+                $this->redirect()->toRoute('account/viewUser', array('id'=>$user->id));
             }
             else {
                 $view->setVariable('error', TRUE);
