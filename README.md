@@ -1,33 +1,18 @@
-ZendSkeletonApplication
+Zebra CMS
 =======================
 
 Introduction
 ------------
-This is a simple, skeleton application using the ZF2 MVC layer and module
-systems. This application is meant to be used as a starting place for those
-looking to get their feet wet with ZF2.
+Rewrite of Zebra CMS to use ZendFramework 2 Doctrine 2 and additional third party modules
 
+Aims: Standardise payment gateway integration
+Standardise code base
+Remove antisms
 
 Installation
 ------------
-
-Using Composer (recommended)
-----------------------------
-The recommended way to get a working copy of this project is to clone the repository
-and use composer to install dependencies:
-
-    cd my/project/dir
-    git clone git://github.com/zendframework/ZendSkeletonApplication.git
-    cd ZendSkeletonApplication
-    php composer.phar install
-
-Using Git submodules
---------------------
-Alternatively, you can install using native git submodules:
-
-    git clone git://github.com/zendframework/ZendSkeletonApplication.git --recursive
+Once installed ensure you run composer update to get the required vendor modules
 
 Virtual Host
 ------------
-Afterwards, set up a virtual host to point to the public/ directory of the
-project and you should be ready to go!
+Set up a virtual host to point to the public/ directory of the project and you should be ready to go!
