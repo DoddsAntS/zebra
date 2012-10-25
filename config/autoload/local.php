@@ -16,9 +16,9 @@ return array(
                 'params' => array(
                     'host' => '127.0.0.1',
                     'port' => '3306',
-                    'user' => 'root',
-                    'password' => 'MV87E977',
-                    'dbname' => 'cms8',
+                    'user' => '',
+                    'password' => '',
+                    'dbname' => '',
                 )
             ),
         ),
@@ -32,10 +32,10 @@ return array(
             'Zend\Db\Adapter\Adapter' => function ($sm) {
                 $adapter = new BjyProfiler\Db\Adapter\ProfilingAdapter(array(
                             'driver' => 'pdo',
-                            'dsn' => 'mysql:dbname=cms8;host=127.0.0.1',
-                            'database' => 'cms8',
-                            'username' => 'root',
-                            'password' => 'MV87E977',
+                            'dsn' => 'mysql:dbname=;host=127.0.0.1',
+                            'database' => '',
+                            'username' => '',
+                            'password' => '',
                             'hostname' => '127.0.0.1',
                         ));
 
