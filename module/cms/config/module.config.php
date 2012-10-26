@@ -15,9 +15,7 @@ return array(
                 'metadata_cache'    => 'array',
                 'query_cache'       => 'array',
                 'result_cache'      => 'array',
-
                 'driver'            => 'orm_default',
-
                 'generate_proxies'  => true,
                 'proxy_dir'         => 'data/DoctrineORMModule/Proxy',
                 'proxy_namespace'   => 'DoctrineORMModule\Proxy',
