@@ -1,11 +1,8 @@
 <?php
 if(isset($this->error)) {
-    ?>
-<p>There were one or more errors</p>
-<?php
+    echo "<p>". (isset($this->errorMessage) ? $this->errorMessage : 'There were one or more errors') ."</p>";
 }
 $form = $this->form;
-//echo "<pre>"; var_dump($form); echo "</pre>";
 $form->prepare();
 
 echo $this->form()->openTag($form);

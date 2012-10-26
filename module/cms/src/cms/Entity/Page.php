@@ -37,7 +37,7 @@ class Page extends Entity {
      * @ORM\Column(type="boolean",nullable=false)
      * @var bool
      */
-    protected $public;
+    protected $publicPage;
     
     /**
      * @ORM\ManyToOne(targetEntity="cms\Entity\User",cascade={"persist","remove"})

@@ -20,7 +20,10 @@ class PageController extends AbstractActionController {
     }
 
     public function indexAction() {
+        $pageName = $this->getEvent()->getRouteMatch()->getParam('page');
         $view = new ViewModel();
+        $page = $this->getEntityManager()->createQuery("select l FROM \cms\Entity\Page l WHERE l.name='{$pageName}'")->execute();
+        $view->setVariable('page', $page[0]);
         return $view;
     }
     

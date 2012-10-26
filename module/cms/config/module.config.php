@@ -64,10 +64,133 @@ return array(
     ),
     'router' => array(
         'routes' => array(
-            // The following is a route to simplify getting started creating
-            // new controllers and actions without needing to create a new
-            // module. Simply drop new controllers in, and you can access them
-            // using the path /application/:controller/:action
+            'pageHtml' => array(
+                'type' => 'regex',
+                'options' => array(
+                    'regex' => '/(?<page>[a-zA-Z0-9_-]+)(\.(?<format>(json|html|htm|xml|rss)))?',
+                    'defaults' => array (
+                        '__NAMESPACE__' => 'cms\Controller',
+                        'controller' => 'Page',
+                        'action'=>'index',
+                        'format'=>'html'
+                    ),
+                    'spec' => '%page%.%format%'
+                )
+            ),
+            'default' => array(
+                'type'    => 'literal',
+                'options' => array(
+                    'route'    => '/:controler[/:action[/:id]]',
+                    'constraints' => array(
+                        'controller'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                    ),
+                    'defaults' => array(
+                        '__NAMESPACE__' => 'cms\Controller',
+                        'controller' => 'Index',
+                        'action' => 'index'
+                    ),
+                ),
+            ),
+            'page' => array(
+                'type'    => 'literal',
+                'options' => array(
+                    'route'    => '/page',
+                    'defaults' => array(
+                        '__NAMESPACE__' => 'cms\Controller',
+                        'controller'    => 'Page',
+                        'action'        => 'index',
+                    ),
+                ),
+                'may_terminate' => true,
+                'child_routes' => array(
+                    'default' => array(
+                        'type'    => 'segment',
+                        'options' => array(
+                            'route'    => '[/:action]',
+                            'constraints' => array(
+                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                            ),
+                            'defaults' => array(
+                                '__NAMESPACE__' => 'cms\Controller',
+                                'controller'    => 'Page',
+                            ),
+                        ),
+                    ),
+                    'viewPage' => array(
+                        'type'=>'segment',
+                        'options'=> array(
+                            'route'=>'/view[/:page]',
+                            'constraints'=> array(
+                                'page' => '[a-zA-Z0-9_-]*'
+                            ),
+                        ),
+                        'defaults'=>array(
+                            '__NAMESPACE__'=>'cms\Controller',
+                            'controller'=>'Page',
+                            'action'=>'index',
+                            'page'=>'home'
+                        )
+                    ),
+                ),
+            ),
+            'account' => array(
+                'type'    => 'literal',
+                'options' => array(
+                    'route'    => '/account',
+                    'defaults' => array(
+                        '__NAMESPACE__' => 'cms\Controller',
+                        'controller'    => 'Account',
+                        'action'        => 'index',
+                    ),
+                ),
+                'may_terminate' => true,
+                'child_routes' => array(
+                    'default' => array(
+                        'type'    => 'segment',
+                        'options' => array(
+                            'route'    => '[/:action]',
+                            'constraints' => array(
+                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                            ),
+                            'defaults' => array(
+                                '__NAMESPACE__' => 'cms\Controller',
+                                'controller'    => 'Account',
+                            ),
+                        ),
+                    ),
+                    'viewUser' => array(
+                        'type'=>'segment',
+                        'options'=> array(
+                            'route'=>'/view[/:id]',
+                            'constraints'=> array(
+                                    'id' => '[0-9]*'
+                                ),
+                            'defaults'=>array(
+                                '__NAMESPACE__'=>'cms\Controller',
+                                'controller'=>'Account',
+                                'action'=>'view',
+                                'id'=>0
+                            )
+                        ),
+                    ),
+                    'viewProfile' => array(
+                        'type'=>'segment',
+                        'options'=> array(
+                            'route'=>'/profile[/:id]',
+                            'constraints'=>array(
+                                    'id'=>'[0-9]*'
+                            ),
+                            'defaults' => array(
+                                '__NAMESPACE__' => 'cms\Controller',
+                                'controller'    => 'Account',
+                                'action'=>'profile',
+                                'id' => 0,
+                            ),
+                        ),
+                    ),
+                ),
+            ),
             'blog' => array(
                 'type'    => 'literal',
                 'options' => array(
@@ -131,93 +254,13 @@ return array(
                     ),
                 ),
             ),
-            'page' => array(
-                'type'    => 'literal',
-                'options' => array(
-                    'route'    => '/page',
-                    'defaults' => array(
-                        '__NAMESPACE__' => 'cms\Controller',
-                        'controller'    => 'Page',
-                        'action'        => 'index',
-                    ),
-                ),
-                'may_terminate' => true,
-                'child_routes' => array(
-                    'default' => array(
-                        'type'    => 'segment',
-                        'options' => array(
-                            'route'    => '[/:action]',
-                            'constraints' => array(
-                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
-                            ),
-                            'defaults' => array(
-                                '__NAMESPACE__' => 'cms\Controller',
-                                'controller'    => 'Page',
-                            ),
-                        ),
-                    ),
-                    'viewUser' => array(
-                        'type'=>'segment',
-                        'options'=> array(
-                            'route'=>'/view[/:id]',
-                            'constraints'=>array('[0-9]*'),
-                        ),
-                        'defaults'=>array(
-                            '__NAMESPACE__'=>'cms\Controller',
-                            'controller'=>'Page',
-                            'action'=>'index',
-                            'id'=>0
-                        )
-                    )
-                ),
-            ),
-            'account' => array(
-                'type'    => 'literal',
-                'options' => array(
-                    'route'    => '/account',
-                    'defaults' => array(
-                        '__NAMESPACE__' => 'cms\Controller',
-                        'controller'    => 'Account',
-                        'action'        => 'index',
-                    ),
-                ),
-                'may_terminate' => true,
-                'child_routes' => array(
-                    'default' => array(
-                        'type'    => 'segment',
-                        'options' => array(
-                            'route'    => '[/:action]',
-                            'constraints' => array(
-                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
-                            ),
-                            'defaults' => array(
-                                '__NAMESPACE__' => 'cms\Controller',
-                                'controller'    => 'Account',
-                            ),
-                        ),
-                    ),
-                    'viewUser' => array(
-                        'type'=>'segment',
-                        'options'=> array(
-                            'route'=>'/view[/:id]',
-                            'constraints'=>array('[0-9]*'),
-                        ),
-                        'defaults'=>array(
-                            '__NAMESPACE__'=>'cms\Controller',
-                            'controller'=>'Account',
-                            'action'=>'view',
-                            'id'=>0
-                        )
-                    )
-                ),
-            ),
         ),
     ),
     'controllers' => array(
         'invokables' => array(
-            'cms\Controller\Page' => 'cms\Controller\PageController',
             'cms\Controller\Blog' => 'cms\Controller\BlogController',
             'cms\Controller\Account' => 'cms\Controller\AccountController',
+            'cms\Controller\Page' => 'cms\Controller\PageController',
         ),
     ),
     'view_manager' => array(

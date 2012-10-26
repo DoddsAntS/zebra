@@ -178,6 +178,9 @@ class User extends Entity {
         }
         else {
             $correctPass = $this->passwordCheck($password);
+            if($correctPass === TRUE) {
+                $this->lastLoginDate = new \DateTime();
+            }
         }
         return $correctPass;
     }
