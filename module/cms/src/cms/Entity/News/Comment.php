@@ -1,25 +1,26 @@
 <?php
-namespace cms\Entity;
+namespace cms\Entity\News;
 
 use Doctrine\ORM\Mapping as ORM;
+use cms\Entity\Entity;
+
 /**
  * 
- * @ORM\Table(name="news")
+ * @ORM\Table(name="news_comments")
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks
  * @author Anthony Dodds (Zebra Web Design)
  * @package News
  */
 
-class News extends Entity {
+class Comment extends Entity {
     
     /**
-     *
      * @var integer
      * @ORM\Column(type="integer",nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
-     */  
+     */
     private $id;
     
     /**
@@ -39,33 +40,14 @@ class News extends Entity {
      * @var datetime
      * @ORM\Column(type="datetime",nullable=false)
      */
-    private $addTime;
+    private $addDate;
     
     /**
      *
      * @var datetime
      * @ORM\Column(type="datetime",nullable=false)
      */
-    private $modifiedTime;
-    
-    /**
-     *
-     * @var datetime
-     * @ORM\Column(type="datetime",nullable=false)
-     */
-    private $expireTime;
-    
-    /**
-     * @var cms\Entity\News\Tag
-     * @ORM\OneToMany(targetEntity="cms\Entity\News\Tag",mappedBy="story",cascade={"persist","remove"})
-     */
-    private $tags;
-    
-    /**
-     * @var cms\Entity\News\Comment
-     * @ORM\OneToMany(targetEntity="cms\Entity\News\Comment",mappedBy="story",cascade={"persist","remove"})
-     */
-    private $comments;
+    private $modifiedDate;
     
     /**
      *
@@ -73,6 +55,13 @@ class News extends Entity {
      * @ORM\ManyToOne(targetEntity="cms\Entity\User",cascade={"persist","remove"})
      */
     private $user;
+    
+    /**
+     *
+     * @var cms\Entity\News
+     * @ORM\ManyToOne(targetEntity="cms\Entity\News",inversedBy="comments",cascade={"persist","remove"})
+     */
+    private $story;
     
     public function __get($property) {
         return $this->{$property};
@@ -82,14 +71,7 @@ class News extends Entity {
         $this->{$property} = $value;
     }
     
-    public function __construct() {
-        $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
-        parent::__construct();
-    }
-    
     /**
-     * Pre update/persist function to update modified time automagically
      * @ORM\PrePersist
      * @ORM\PreUpdate 
      */
@@ -99,5 +81,4 @@ class News extends Entity {
         }
         $this->modifiedDate = new \DateTime();
     }
-    
 }

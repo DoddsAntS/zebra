@@ -31,7 +31,7 @@ return array(
             'cms_driver' => array(
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'cache' => 'array',
-                'paths' => array(__DIR__ . '../src/cms/Entity')
+                'paths' => array(__DIR__ . '\..\src\cms\Entity')
             )
         ),
 
@@ -252,6 +252,65 @@ return array(
                     ),
                 ),
             ),
+            'news' => array(
+                'type'    => 'literal',
+                'options' => array(
+                    'route'    => '/news',
+                    'defaults' => array(
+                        '__NAMESPACE__' => 'cms\Controller',
+                        'controller'    => 'News',
+                        'action'        => 'index',
+                    ),
+                ),
+                'may_terminate' => true,
+                'child_routes' => array(
+                    'default' => array(
+                        'type'    => 'segment',
+                        'options' => array(
+                            'route'    => '[/:action]',
+                            'constraints' => array(
+                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                            ),
+                            'defaults' => array(
+                                '__NAMESPACE__' => 'cms\Controller',
+                                'controller'    => 'News',
+                            ),
+                        ),
+                    ),
+                    'view' => array(
+                        'type' => 'segment',
+                        'options' => array(
+                            'route' => '/view[/:id][/:title]',
+                            'constraints' => array(
+                                'id' => '[0-9]+',
+                                'title' => '[a-zA-Z0-9_-]*',
+                            ),
+                            'defaults' => array(
+                                '__NAMESPACE__' => 'cms\Controller',
+                                'controller'    => 'News',
+                                'action'=>'view',
+                                'id' => 0,
+                                'title' => null
+                            ),
+                        )
+                    ),
+                    'comment' => array(
+                        'type' => 'segment',
+                        'options' => array(
+                            'route' => '/comment[/:newsId]',
+                            'constraints' => array(
+                                'newsId' => '[0-9]+',
+                            ),
+                            'defaults' => array(
+                                '__NAMESPACE__' => 'cms\Controller',
+                                'controller'    => 'News',
+                                'action'=>'comment',
+                                'newsId'=>0,
+                            ),
+                        )
+                    )
+                ),
+            )
         ),
     ),
     'controllers' => array(
@@ -259,6 +318,7 @@ return array(
             'cms\Controller\Blog' => 'cms\Controller\BlogController',
             'cms\Controller\Account' => 'cms\Controller\AccountController',
             'cms\Controller\Page' => 'cms\Controller\PageController',
+            'cms\Controller\News' => 'cms\Controller\NewsController',
         ),
     ),
     'view_manager' => array(

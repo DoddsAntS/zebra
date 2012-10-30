@@ -1,0 +1,11 @@
+<?php
+if(isset($this->error)) {
+    echo "<p>". (isset($this->errorMessage) ? $this->errorMessage : 'There were one or more errors') ."</p>";
+}
+$form = $this->form;
+$form->prepare();
+
+echo $this->form()->openTag($form);
+echo $this->formCollection($form);
+echo $this->form()->closeTag();
+?>
