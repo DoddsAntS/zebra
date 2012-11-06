@@ -11,7 +11,7 @@ use cms\Entity\Entity;
  *
  * @author tallen
  * @ORM\Entity
- * @ORM\Table(name="Reply")
+ * @ORM\Table(name="forum_replies")
  * @package Reply
  */
 

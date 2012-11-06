@@ -11,7 +11,7 @@ use cms\Entity\Entity;
  *
  * @author tallen
  * @ORM\Entity
- * @ORM\Table(name="Category")
+ * @ORM\Table(name="forum_categories")
  * @package Category
  */
 class Category extends Entity {

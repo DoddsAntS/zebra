@@ -11,7 +11,7 @@ use cms\Entity\Entity;
  *
  * @author tallen
  * @ORM\Entity
- * @ORM\Table(name="Topic")
+ * @ORM\Table(name="forum_topics")
  * @package Topic
  */
 
