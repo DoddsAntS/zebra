@@ -164,3 +164,6 @@ pip-log.txt
 .DS_Store
 
 vendor
+/nbproject/private/
+nbproject
+composer.lock

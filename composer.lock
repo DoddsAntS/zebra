@@ -11,7 +11,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/bjyoungblood/BjyProfiler/zipball/1f8e5e00b8083cc88508a14684d983a0418147e5",
+                "url": "https://github.com/bjyoungblood/BjyProfiler/archive/1f8e5e00b8083cc88508a14684d983a0418147e5.zip",
                 "reference": "1f8e5e00b8083cc88508a14684d983a0418147e5",
                 "shasum": ""
             },
@@ -486,23 +486,23 @@
         },
         {
             "name": "symfony/console",
-            "version": "v2.1.2",
+            "version": "v2.1.3",
             "target-dir": "Symfony/Component/Console",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console",
-                "reference": "v2.1.0-RC2"
+                "reference": "v2.1.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/Console/zipball/v2.1.0-RC2",
-                "reference": "v2.1.0-RC2",
+                "url": "https://github.com/symfony/Console/zipball/v2.1.3",
+                "reference": "v2.1.3",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
-            "time": "2012-08-22 06:48:41",
+            "time": "2012-10-22 07:37:12",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -537,12 +537,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/ZendDeveloperTools.git",
-                "reference": "da52fa6362c62852664441e8936203362c0bf64b"
+                "reference": "e930bd2feaf13e046e6896d18d4218e31c3ddaf1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/zendframework/ZendDeveloperTools/zipball/da52fa6362c62852664441e8936203362c0bf64b",
-                "reference": "da52fa6362c62852664441e8936203362c0bf64b",
+                "url": "https://github.com/zendframework/ZendDeveloperTools/archive/e930bd2feaf13e046e6896d18d4218e31c3ddaf1.zip",
+                "reference": "e930bd2feaf13e046e6896d18d4218e31c3ddaf1",
                 "shasum": ""
             },
             "require": {
@@ -552,7 +552,7 @@
             "suggest": {
                 "bjyoungblood/bjy-profiler": "Version: dev-master, allows the usage of the (Zend) Db collector."
             },
-            "time": "1348944848",
+            "time": "1351428639",
             "type": "zf-module",
             "installation-source": "source",
             "autoload": {
