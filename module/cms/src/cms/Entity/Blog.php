@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @author adodds
  * @ORM\Entity
  * @ORM\Table(name="blogs")
+ * @ORM\HasLifecycleCallbacks
  * @package Blog
  */
 class Blog extends Entity {
