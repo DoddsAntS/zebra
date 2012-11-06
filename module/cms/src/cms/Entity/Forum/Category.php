@@ -1,19 +1,18 @@
 <?php
 namespace cms\Entity\Forum;
 
-
 use Doctrine\ORM\Mapping as ORM;
+
 use cms\Entity\Entity;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
  * Description of Category
  *
  * @author tallen
+ * @ORM\Entity
+ * @ORM\Table(name="Category")
+ * @package Category
  */
 class Category extends Entity {
           

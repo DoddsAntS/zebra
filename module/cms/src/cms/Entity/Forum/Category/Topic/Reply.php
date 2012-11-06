@@ -7,9 +7,12 @@ use Doctrine\ORM\Mapping as ORM;
 use cms\Entity\Entity;
 
 /**
- * Description of Topic
+ * Description of Reply
  *
  * @author tallen
+ * @ORM\Entity
+ * @ORM\Table(name="Reply")
+ * @package Reply
  */
 
 class Reply extends Entity {

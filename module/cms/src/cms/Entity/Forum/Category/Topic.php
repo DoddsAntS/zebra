@@ -10,7 +10,11 @@ use cms\Entity\Entity;
  * Description of Topic
  *
  * @author tallen
+ * @ORM\Entity
+ * @ORM\Table(name="Topic")
+ * @package Topic
  */
+
 class Topic extends Entity {
 
           /**
