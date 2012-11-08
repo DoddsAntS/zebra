@@ -342,11 +342,11 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
+            'cms\Controller\News' => 'cms\Controller\NewsController',
+            'cms\Controller\Forum' => 'cms\Controller\ForumController',
             'cms\Controller\Blog' => 'cms\Controller\BlogController',
             'cms\Controller\Account' => 'cms\Controller\AccountController',
             'cms\Controller\Page' => 'cms\Controller\PageController',
-            'cms\Controller\News' => 'cms\Controller\NewsController',
-            'cms\Controller\Forum' => 'cms\Controller\ForumController',
         ),
     ),
     'view_manager' => array(
