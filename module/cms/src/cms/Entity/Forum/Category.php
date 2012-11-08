@@ -56,7 +56,15 @@ class Category extends Entity {
      * @var type
      * @ORM\OneToMany(targetEntity="cms\Entity\Forum\Category\Topic",mappedBy="category",cascade={"persist","remove"})
      */
-    private $topics;
+    private $topics;    
+    
+    public function __get($property) {
+        return $this->{$property};
+    }
+    
+    public function __set($property, $value) {
+        $this->{$property} = $value;
+    }
     
 }
 

@@ -4,10 +4,12 @@ namespace cms\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+
 use Doctrine\ORM\EntityManager;
-use cms\Entity\Forum\Category;
+
+/*use cms\Entity\Forum\Category;
 use cms\Entity\Forum\Category\Topic;
-use cms\Entity\Forum\Category\Topic\Reply;
+use cms\Entity\Forum\Category\Topic\Reply;*/
 
 /**
  * BlogController for Forum
@@ -26,11 +28,12 @@ class ForumController extends AbstractActionController {
     }
 
     public function indexAction() {
-        $forum = $this->getEntityManager()->find('cms\Entity\Forum', 1);
         $view = new ViewModel();
+        $forum = $this->getEntityManager()->find('cms\Entity\Forum', 1);
         $view->setVariables(
                 array('forum' => $forum)
         );
+        
         return $view;
     }
 
@@ -79,11 +82,11 @@ class ForumController extends AbstractActionController {
                     $form->bindValues();
                 }
                 $this->getEntityManager()->flush();
-                $this->redirect()->toRoute('Forum\Category\Topic\Reply\viewReply', array('topicId' => topicId, 'categoryId' => $categoryId));
+                //$this->redirect()->toRoute('Forum\Category\Topic\Reply\viewReply', array('topicId' => topicId, 'categoryId' => $categoryId));
             }
         }
         $view = new ViewModel;
-        $view->setVariable('form', $form);
+        //$view->setVariable('form', $form);
         return $view;
     }
 

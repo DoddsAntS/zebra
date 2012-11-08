@@ -80,8 +80,15 @@ class Forum extends Entity {
             $this->addDate = new \DateTime();
         }
         $this->modifiedDate = new \DateTime();
+    }    
+    
+    public function __get($property) {
+        return $this->{$property};
     }
     
+    public function __set($property, $value) {
+        $this->{$property} = $value;
+    }
     
 }
 

@@ -72,6 +72,14 @@ class Topic extends Entity {
         if(!($this->addDate instanceof \DateTime)) {
             $this->addDate = new \DateTime();
         }
+    }    
+    
+    public function __get($property) {
+        return $this->{$property};
+    }
+    
+    public function __set($property, $value) {
+        $this->{$property} = $value;
     }
     
 }

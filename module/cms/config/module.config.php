@@ -132,6 +132,33 @@ return array(
                     ),
                 ),
             ),
+            'forum' => array(
+                'type' => 'literal',
+                'options'=> array(
+                    'route' => '/forum',
+                    'defaults' => array(
+                        '__NAMESPACE__'=>'cms\Controller',
+                        'controller' => 'Forum',
+                        'action'=>'index',
+                    ),
+                ),
+                'may_terminate' => true,
+                'child_routes' => array(
+                    'default' => array(
+                        'type'    => 'segment',
+                        'options' => array(
+                            'route'    => '[/:action]',
+                            'constraints' => array(
+                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                            ),
+                            'defaults' => array(
+                                '__NAMESPACE__' => 'cms\Controller',
+                                'controller'    => 'Forum',
+                            ),
+                        ),
+                    ),
+                ),
+            ),
             'account' => array(
                 'type'    => 'literal',
                 'options' => array(
@@ -309,33 +336,6 @@ return array(
                             ),
                         )
                     )
-                ),
-            ),
-            'forum' => array(
-                'type'    => 'literal',
-                'options' => array(
-                    'route'    => '/forum',
-                    'defaults' => array(
-                        '__NAMESPACE__' => 'cms\Controller',
-                        'controller'    => 'Forum',
-                        'action'        => 'index',
-                    ),
-                ),
-                'may_terminate' => true,
-                'child_routes' => array(
-                    'default' => array(
-                        'type'    => 'segment',
-                        'options' => array(
-                            'route'    => '[/:action]',
-                            'constraints' => array(
-                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
-                            ),
-                            'defaults' => array(
-                                '__NAMESPACE__' => 'cms\Controller',
-                                'controller'    => 'Forum',
-                            ),
-                        ),
-                    ),
                 ),
             ),
         ),
