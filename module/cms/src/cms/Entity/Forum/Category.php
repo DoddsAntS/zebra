@@ -54,7 +54,7 @@ class Category extends Entity {
         /**
      *
      * @var type
-     * @ORM\OneToMany(targetEntity="cms\Entity\Forum\Category\Topics",mappedBy="category",cascade={"persist","remove"})
+     * @ORM\OneToMany(targetEntity="cms\Entity\Forum\Category\Topic",mappedBy="category",cascade={"persist","remove"})
      */
     private $topics;
     
